@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import requests from "../consts/requests";
 import useAxios from "../hooks/useAxios";
 
-import Card from "./Card";
+import Card from "./PosterCard";
 
 const requestKey = {
   Action: "fetchActionMovies",

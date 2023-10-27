@@ -3,13 +3,14 @@ import requests from "../consts/requests";
 import { useEffect, useState } from "react";
 import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useList } from "../context/ListContext";
+import GenrePill from "./GenrePill";
+import { Link } from "react-router-dom";
 
-export default function Banner() {
+export default function HomeBanner() {
   const { list, handleAddToList, handleRemoveFromList, isFavorite } = useList();
   const [movie, setMovie] = useState([]);
 
   const { response } = useAxios(requests.fetchTrending);
-
   useEffect(() => {
     if (response) {
       const randomMovieIndex = response
@@ -35,7 +36,7 @@ export default function Banner() {
   }
 
   return (
-    <div
+    <header
       className="bg-cover relative bg-center h-[600px]"
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
@@ -43,16 +44,23 @@ export default function Banner() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black">
         <div className="absolute bottom-[8rem] left-12 text-white">
-          <h1 className="text-3xl max-w-[24rem] font-bold mb-2">
+          <h1 className="text-5xl max-w-[24rem] font-bold mb-4">
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
-          <p className="text-sm max-w-md mb-4">
+          {movie && movie.genre_ids && <GenrePill id={movie?.genre_ids} />}
+          <p className="max-w-md mt-4 mb-4 text-sm text-gray-300">
             {truncate(movie?.overview, 150)}
           </p>
-          <div className="flex gap-4 items-center">
-            <button className="border-red-600 border-2 px-4 py-2 rounded-3xl font-bold shadow-lg hover:bg-red-600 transition-all ease-in">
+          <div className="flex items-center gap-4">
+            <Link
+              to={`/movies/${encodeURIComponent(
+                movie.title || movie.name || movie.original_name
+              )}`}
+              state={{ movie }}
+              className="px-4 py-2 font-bold transition-all ease-in border-2 border-red-600 shadow-lg rounded-3xl hover:bg-red-600"
+            >
               Watch now
-            </button>
+            </Link>
             {favorite ? (
               <Favorite
                 className="text-red-600 cursor-pointer"
@@ -67,6 +75,6 @@ export default function Banner() {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

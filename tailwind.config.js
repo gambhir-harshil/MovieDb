@@ -8,6 +8,9 @@ export default {
         primary: "#8E8FFA",
         input: "#C2D9FF",
       },
+      fontFamily: {
+        rye: ["Rye", "serif"],
+      },
     },
   },
   plugins: [],

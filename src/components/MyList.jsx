@@ -1,5 +1,5 @@
 import { useList } from "../context/ListContext";
-import Card from "./Card";
+import Card from "./PosterCard";
 
 export default function MyList() {
   const { list } = useList();

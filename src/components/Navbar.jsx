@@ -1,5 +1,6 @@
 import { Settings } from "@mui/icons-material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [show, handleShow] = useState(false);
@@ -24,10 +25,10 @@ export default function Navbar() {
       }`}
     >
       <ul className="flex gap-4 font-semibold">
-        <li>Movies</li>
-        <li>Series</li>
-        <li>Trending</li>
-        <li>List</li>
+        <Link>Movies</Link>
+        <Link>Series</Link>
+        <Link>Trending</Link>
+        <Link>List</Link>
       </ul>
       <Settings className="text-2xl" />
     </div>

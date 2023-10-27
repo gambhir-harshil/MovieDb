@@ -9,15 +9,17 @@ export default function (request) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     async function fetchData() {
       try {
-        setLoading(true);
         const res = await axios.get(request);
         setResponse(res.data);
       } catch (err) {
         setError(err);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
       }
     }
     fetchData();

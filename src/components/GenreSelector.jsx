@@ -4,11 +4,7 @@ import GenreCards from "./GenreCards";
 
 const genres = ["Action", "Horror", "Documentary", "Comedy"];
 
-export default function GenreSelector({
-  list,
-  handleAddToList,
-  handleRemoveFromList,
-}) {
+export default function GenreSelector() {
   const [activeGenre, setActiveGenre] = useState("Action");
 
   function handleClick(genre) {
@@ -16,7 +12,7 @@ export default function GenreSelector({
   }
 
   return (
-    <div className="flex flex-col items-center text-white mt-4 gap-4">
+    <div className="flex flex-col items-center gap-4 mt-4 text-white">
       <h1 className="text-2xl font-bold">Find your favorite genre</h1>
       <div className="flex gap-4">
         {genres.map((genre, id) => (
