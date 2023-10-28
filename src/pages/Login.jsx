@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/Input";
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -17,42 +18,33 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-8 bg-background">
-      <h1 className="text-3xl font-semibold text-white">Begin your journey!</h1>
-      <div className="h-[50%] min bg-primary min-w-[80%] md:min-w-[50%] rounded-tl-2xl rounded-br-2xl drop-shadow-lg flex flex-col justify-center items-center gap-8">
-        <form
-          onSubmit={handleLogin}
-          className="flex flex-col w-[40%] gap-4 text-white"
+    <div className="flex flex-col items-center justify-center h-screen gap-8 px-16 bg-black">
+      <h1 className="max-w-sm text-2xl font-bold text-center text-red-600 md:text-4xl">
+        Dive into the world of entertainment
+      </h1>
+      <form onSubmit={handleLogin} className="flex flex-col gap-6 text-white">
+        <Input
+          type="text"
+          placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          type="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="bg-white border-white border-2 rounded-lg p-[2px] px-4 py-2 text-red-600 hover:text-white font-bold hover:bg-transparent transition-all ease-in-out"
         >
-          <input
-            className="p-2 outline-none bg-input rounded-l-xl"
-            type="text"
-            id="name"
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            className="p-2 outline-none bg-input rounded-r-xl"
-            type="email"
-            id="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="p-2 outline-none bg-input rounded-l-xl"
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="border-2 border-background rounded-tl-xl rounded-br-xl p-[2px] hover:border-gray-500 transition-all ease-in-out"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+          Login
+        </button>
+      </form>
     </div>
   );
 }
