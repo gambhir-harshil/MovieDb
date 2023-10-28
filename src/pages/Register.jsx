@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 
-export default function Login() {
+export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +42,7 @@ export default function Login() {
           type="submit"
           className="bg-white border-white border-2 rounded-lg p-[2px] px-4 py-2 text-red-600 hover:text-white font-bold hover:bg-transparent transition-all ease-in-out"
         >
-          Login
+          Register
         </button>
       </form>
     </div>

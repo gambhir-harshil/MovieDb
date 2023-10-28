@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { ListProvider } from "./context/ListContext";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { Suspense } from "react";
 import LoaderFullscreen from "./components/LoaderFullscreen";
 import Page404 from "./pages/Page404";
@@ -51,7 +51,7 @@ export default function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Register />,
     },
   ]);
 
