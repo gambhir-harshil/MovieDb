@@ -22,10 +22,10 @@ export default function Cards({ url, title }) {
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold text-white">{title}</h1>
+          <h1 className="text-xl font-bold text-white md:text-3xl">{title}</h1>
           <div className="flex gap-4 overflow-x-scroll overflow-y-hidden text-white">
             {movies.map((movie) => (
-              <div key={movie.id} className="min-w-[200px]">
+              <div key={movie.id} className="md:min-w-[200px] min-w-[160px]">
                 <PosterCard movie={movie} />
               </div>
             ))}

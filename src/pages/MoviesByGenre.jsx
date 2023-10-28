@@ -5,6 +5,7 @@ import requests from "../consts/requests";
 import { useEffect, useState } from "react";
 import BackdropCard from "../components/BackdropCard";
 import Loader from "../components/Loader";
+import Page404 from "./Page404";
 
 export default function MoviesByGenre() {
   const [movies, setMovies] = useState([]);
@@ -33,20 +34,10 @@ export default function MoviesByGenre() {
           <Loader />
         </div>
       ) : !movies.length ? (
-        <div className="flex flex-col items-center justify-center h-screen gap-4">
-          <h1 className="text-5xl text-red-600 text-extrabold">
-            OOPS! Nothing to show here
-          </h1>
-          <button
-            onClick={() => navigate(-1)}
-            className="px-4 py-2 text-3xl text-gray-400 border-2 border-red-600 rounded-xl hover:border-white text-bold"
-          >
-            Go back
-          </button>
-        </div>
+        <Page404 />
       ) : (
         <div className="flex flex-col h-full gap-12 p-20">
-          <h1 className="text-4xl font-bold tracking-wide text-white">
+          <h1 className="text-2xl font-bold tracking-wide text-white md:text-4xl">
             Trending {genre} movies
           </h1>
           <div className="grid grid-cols-1 gap-8 text-white sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3">

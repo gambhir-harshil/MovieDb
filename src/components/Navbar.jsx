@@ -1,9 +1,13 @@
-import { Settings } from "@mui/icons-material";
+import { ArrowDropDown, Settings } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const [show, handleShow] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
+
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -25,12 +29,30 @@ export default function Navbar() {
       }`}
     >
       <ul className="flex gap-4 font-semibold">
-        <Link>Movies</Link>
-        <Link>Series</Link>
-        <Link>Trending</Link>
-        <Link>List</Link>
+        <Link
+          to={"/"}
+          className="text-xl font-extrabold tracking-wider md:text-2xl"
+        >
+          Home
+        </Link>
       </ul>
-      <Settings className="text-2xl" />
+      <div
+        className="relative flex flex-col items-center text-xl cursor-pointer md:text-2xl"
+        onClick={() => setDropDown(!dropDown)}
+      >
+        <span className="flex items-center">
+          {user.name}
+          <ArrowDropDown />
+        </span>
+        {dropDown && (
+          <span
+            className="p-2 text-lg font-bold text-red-600 rounded-lg bg-black/70"
+            onClick={logout}
+          >
+            Logout
+          </span>
+        )}
+      </div>
     </div>
   );
 }

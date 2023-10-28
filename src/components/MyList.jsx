@@ -5,10 +5,10 @@ export default function MyList() {
   const { list } = useList();
   return (
     <>
-      <h1 className="text-white font-bold text-3xl">My List</h1>
-      <div className="text-white flex gap-4 overflow-x-scroll overflow-y-hidden">
+      <h1 className="text-xl font-bold text-white md:text-3xl">My List</h1>
+      <div className="flex gap-4 overflow-x-scroll overflow-y-hidden text-white">
         {list.map((movie) => (
-          <div key={movie.id} className="min-w-[200px]">
+          <div key={movie.id} className="md:min-w-[200px] min-w-[160px]">
             <Card movie={movie} />
           </div>
         ))}

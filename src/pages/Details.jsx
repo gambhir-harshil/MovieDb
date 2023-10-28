@@ -14,7 +14,7 @@ export default function MovieDetails() {
   const { movie } = location.state;
 
   const opts = {
-    height: "600",
+    height: window.innerWidth < 768 ? "100%" : "600",
     width: "100%",
     playerVars: {
       autoplay: 1,

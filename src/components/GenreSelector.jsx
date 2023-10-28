@@ -13,8 +13,10 @@ export default function GenreSelector() {
 
   return (
     <div className="flex flex-col items-center gap-4 mt-4 text-white">
-      <h1 className="text-2xl font-bold">Find your favorite genre</h1>
-      <div className="flex gap-4">
+      <h1 className="text-xl font-bold md:text-2xl">
+        Find your favorite genre
+      </h1>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {genres.map((genre, id) => (
           <Pill
             key={id}

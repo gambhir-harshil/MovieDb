@@ -18,7 +18,7 @@ export default function Cast({ movie }) {
       {cast.length ? (
         <div className="mt-4 mb-8">
           <h1 className="text-3xl font-bold">Top Cast</h1>
-          <div className="flex justify-between mt-8">
+          <div className="grid grid-cols-2 gap-8 mt-8 md:grid-cols-3 xl:grid-cols-5">
             {cast.map((celeb) => (
               <CastCard key={celeb.cast_id} celeb={celeb} />
             ))}

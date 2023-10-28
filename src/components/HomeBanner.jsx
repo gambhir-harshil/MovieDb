@@ -43,12 +43,12 @@ export default function HomeBanner() {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black">
-        <div className="absolute bottom-[8rem] left-12 text-white">
-          <h1 className="text-5xl max-w-[24rem] font-bold mb-4">
+        <div className="absolute bottom-[8rem] md:left-12 left-8 text-white">
+          <h1 className="md:text-5xl text-2xl max-w-[24rem] font-bold mb-4">
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
           {movie && movie.genre_ids && <GenrePill id={movie?.genre_ids} />}
-          <p className="max-w-md mt-4 mb-4 text-sm text-gray-300">
+          <p className="max-w-md mt-4 mb-4 text-xs text-gray-300 md:text-sm">
             {truncate(movie?.overview, 150)}
           </p>
           <div className="flex items-center gap-4">
@@ -57,7 +57,7 @@ export default function HomeBanner() {
                 movie.title || movie.name || movie.original_name
               )}`}
               state={{ movie }}
-              className="px-4 py-2 font-bold transition-all ease-in border-2 border-red-600 shadow-lg rounded-3xl hover:bg-red-600"
+              className="px-2 py-2 text-sm font-bold transition-all ease-in border-2 border-red-600 shadow-lg md:text-base md:px-4 rounded-3xl hover:bg-red-600"
             >
               Watch now
             </Link>

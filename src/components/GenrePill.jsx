@@ -7,7 +7,7 @@ export default function GenrePill({ id }) {
         <Link
           to={`/movies/genre/${genre}`}
           key={id}
-          className="p-2 text-sm font-semibold text-gray-200 border-2 border-red-600 rounded-full bg-red-600/60"
+          className="p-2 text-xs font-medium text-gray-200 border-2 border-red-600 rounded-full md:font-semibold md:text-sm bg-red-600/60"
         >
           {genre}
         </Link>
