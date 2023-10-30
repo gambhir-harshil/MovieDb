@@ -22,7 +22,7 @@ export default function HomeBanner() {
     }
   }, [response, list]);
 
-  const favorite = isFavorite(movie.id);
+  const favorite = isFavorite(movie?.id);
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
