@@ -2,7 +2,7 @@ import Banner from "../components/HomeBanner";
 import Cards from "../components/Cards";
 import GenreSelector from "../components/GenreSelector";
 import MyList from "../components/MyList";
-import SubscribeBanner from "../components/subscribeBanner";
+import SubscribeBanner from "../components/SubscribeBanner";
 import requests from "../consts/requests";
 import { useList } from "../context/ListContext";
 
