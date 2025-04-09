@@ -6,7 +6,7 @@ export default function Footer() {
       <p className="text-white">
         Made by{" "}
         <span className="font-semibold text-red-600 tracking-wide uppercase ml-[1px]">
-          Harshil Gambhir
+          Pratishtha Kanojia
         </span>
       </p>
     </footer>
